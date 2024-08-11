@@ -73,7 +73,9 @@ export default function Page({params}) {
                     </div>
                     {
                       post.note?
-                      <h4 className="text-amber-400">Nota: {post.note}</h4>
+                      <div className="flex justify-center items-center">
+                        <h4 className="text-amber-400">Nota: {post.note}</h4>
+                      </div>
                       :
                       <></>
                     }
