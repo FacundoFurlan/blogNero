@@ -41,6 +41,10 @@ a {
   margin: 1.5rem;
 }
 
+.likent-button{
+  filter: invert(11%) sepia(89%) saturate(5629%) hue-rotate(4deg) brightness(85%) contrast(96%);
+}
+
 .button-login{
   background-color: $color_1;
   border-color: $color_1 ;
@@ -54,4 +58,8 @@ a {
 
 .input-bg{
   background-color: $color_2;
+}
+
+.preWrap{
+  white-space: pre-wrap;
 }

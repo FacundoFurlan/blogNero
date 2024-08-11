@@ -17,7 +17,9 @@ export async function POST(request){
         if(isValidPassword(user, data.password)){ //matching passwords
             const token = jwt.sign({ //creating token
                 email: user.email,
-                id: user._id
+                id: user._id,
+                admin: user.admin,
+                name: user.name
             },
                 SECRET,
                 {expiresIn: "1h"

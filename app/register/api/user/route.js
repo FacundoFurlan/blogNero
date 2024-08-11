@@ -8,6 +8,12 @@ export async function POST(request){
 
     try {
         let data = await request.json();
+
+        const emailCheck = await userModel.findOne({email: data.email});
+        if(emailCheck){
+            return NextResponse.json({error: true, errorMessage: "Email already exists"})
+        }
+
         data.password = createHash(data.password);
         const userData = new userModel(data);
         const savedUser = await userData.save();

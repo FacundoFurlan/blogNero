@@ -1,16 +1,17 @@
 import "@/app/globals.scss";
+import Link from "next/link";
 
-export default function PostCard({title, description, date, imgPath}){
+export default function PostCard({title, description, date, imgPath, id}){
     return(
-        <div className="m-8 w-[80vw] lg:w-[50vw] flex flex-col justify-center items-center">
+        <div className="m-8 mt-4 w-[80vw] lg:w-[50vw] flex flex-col justify-center items-center">
             <div className="max-w-sm w-full lg:max-w-full lg:flex card-bg">
             <div className="card-bg p-4 flex flex-col justify-between leading-normal">
                 <div className="mb-8">
-                <div className="flex flex-col lg:flex-row items-center mb-2">
-                    <img src={imgPath} className="w-20 h-20 mb-6 lg:mr-6" alt="" />
-                    <div className="lg:max-w-min text-white text-center font-bold text-xl lg:text-nowrap lg:truncate inline border-b-2 border-amber-400 rounded">{title}</div>
+                <div className="flex flex-col lg:flex-row items-center mb-4">
+                    <img src={imgPath} className="h-20 m-2 lg:mr-6" alt="" />
+                    <div className=" lg:max-w-min text-white text-center font-bold text-xl lg:text-nowrap lg:truncate inline border-b-2 border-amber-400 rounded"><Link href={`/${id}`}>{title}</Link></div>
                 </div>
-                <p className="text-white text-base">{description}</p>
+                <p className="text-white text-base line-clamp-2">{description}</p>
                 </div>
                 <div className="flex items-center">
                 <div className="text-sm">
