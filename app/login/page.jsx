@@ -54,7 +54,7 @@ export default function Page(){
                 <input className="py-2 px-3 border focus:outline-none focus:outline-red-800 focus:outline-offset-0 input-bg rounded border-amber-400" type="password" placeholder="***********" name="password" />
                 {
                     loading?
-                    <div className="flex my-10 items-center">
+                    <div className="flex my-10 items-center justify-center">
                         <l-ring
                             size="80"
                             stroke="5"
