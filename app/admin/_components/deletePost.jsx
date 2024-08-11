@@ -11,7 +11,7 @@ export default async function deletePost(formData){
 
 
     try {
-        const res = await fetch("http://localhost:3000/admin/api/", {
+        const res = await fetch("https://blog-nero.vercel.app/admin/api/", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

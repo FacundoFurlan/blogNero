@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export async function handleSubmit(formData) {
     const data = Object.fromEntries(formData); //Takes all the input data and forms an object with them
 
-    const res = await fetch("http://localhost:3000/login/api/user", { //fetch to the api
+    const res = await fetch("https://blog-nero.vercel.app/login/api/user", { //fetch to the api
         method: "POST",
         body: JSON.stringify(data),
         headers: {

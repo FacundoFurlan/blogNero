@@ -73,7 +73,7 @@ export default async function handleRegister (formData){
             replyTo: MAIL,
             subject: `Confirm your mail!`,
             html: `
-            <button><a href="http://localhost:3000/register/confirm/${tokenConfirm}">Confirm!</a></button>
+            <button><a href="https://blog-nero.vercel.app/register/confirm/${tokenConfirm}">Confirm!</a></button>
             `,
         })
 

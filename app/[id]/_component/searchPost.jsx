@@ -4,7 +4,7 @@ import "@/app/globals.scss";
 
 export default async function searchPost(id) {
 
-  const res = await fetch(`http://localhost:3000/${id}/api/`, {
+  const res = await fetch(`https://blog-nero.vercel.app/${id}/api/`, {
     method: "GET",
     headers: {
         "Content-Type": "application/json"

@@ -10,7 +10,7 @@ export default function Page({params}) {
 
     async function searchPosts() {
 
-    const res = await fetch(`http://localhost:3000/post/${params.id}/api/`, {
+    const res = await fetch(`https://blog-nero.vercel.app/post/${params.id}/api/`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"

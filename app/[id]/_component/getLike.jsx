@@ -13,7 +13,7 @@ export default async function getLike(postId) {
       const cookiedecoded = jwt.verify(cookieFound.value, SECRET);
       userId = cookiedecoded.id;          
   
-      const res = await fetch(`http://localhost:3000/likes/${postId}/${userId}`, {
+      const res = await fetch(`https://blog-nero.vercel.app/likes/${postId}/${userId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"

@@ -16,7 +16,7 @@ export default async function postLike(postId) {
       redirect("/login");
   }
 
-  const res = await fetch(`http://localhost:3000/likes/${postId}/${userId}`, {
+  const res = await fetch(`https://blog-nero.vercel.app/likes/${postId}/${userId}`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json"

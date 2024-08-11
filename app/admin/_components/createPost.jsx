@@ -40,7 +40,7 @@ export default async function createPost (formData) {
         }
 
     try {
-        const res = await fetch("http://localhost:3000/admin/api/", {
+        const res = await fetch("https://blog-nero.vercel.app/admin/api/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

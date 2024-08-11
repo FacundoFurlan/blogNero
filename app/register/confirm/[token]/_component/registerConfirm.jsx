@@ -16,7 +16,7 @@ export default async function registerConfirm(params) {
                 const cookieDataDecoded = jwt.verify(params.token, SECRET);
                 console.log(cookieDataDecoded);
     
-                const res = await fetch("http://localhost:3000/register/api/user", {
+                const res = await fetch("https://blog-nero.vercel.app/register/api/user", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
