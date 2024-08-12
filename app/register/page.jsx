@@ -11,13 +11,13 @@ export default function Page(){
     const [emailSended, setEmailSended] = useState(false);
 
     async function formAction(formData){ //This function is used to manage the response of the server action
-        setLoading(true)
         const response = await handleRegister(formData); //call to the server action
         console.log("respuesta: ",response)
 
         if(!response.error){ //If there was no error, then, redirect to home page
             setEmailSended(true);
         } else { //If there was an error, then, set the error message
+            setLoading(false)
             if(errorMessage === response.errorMessage){ //if the error message keeps happening, the font size will increase
                 setErrorCount(errorCount+1)
                 if(errorCount+1 == 1){

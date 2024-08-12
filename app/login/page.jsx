@@ -18,6 +18,7 @@ export default function Page(){
         if(!response.error){ //If there was no error, then, redirect to home page
             router.push("/")
         } else { //If there was an error, then, set the error message
+            setLoading(false)
             if(errorMessage === response.message){ //if the error message keeps happening, the font size will increase
                 setErrorCount(errorCount+1)
                 if(errorCount+1 == 1){
