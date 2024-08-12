@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
 
         <nav className="mb-8 flex justify-between items-center border-b-2 border-amber-500">
           <div className="flex flex-row items-center">
-            <Link href="/">
+            <Link href="/" prefetch={false}>
               <Image
                 src="/logo.svg"
                 width={500}
