@@ -1,5 +1,6 @@
 "use server"
 import "@/app/globals.scss";
+import { revalidatePath } from "next/cache";
 
 
 export default async function searchPosts() {
@@ -14,5 +15,6 @@ export default async function searchPosts() {
   
   const result = await res.json();
   console.log("result: ", result.result.totalDocs);
+  revalidatePath("/")
   return(result.result)
 }
