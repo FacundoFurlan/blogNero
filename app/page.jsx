@@ -9,13 +9,23 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
   
   async function search () {
-    const resp = await searchPosts() //this will search for the latest 3 posts
-    setPosts(resp.docs); //this will update the state of the posts objet
-    console.log("post search: ", resp.docs);
+    const res = await fetch("https://blog-nero.vercel.app/api/", {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      cache: "no-store"
+    });
+    
+    const result = await res.json();
+    console.log("result: ", result.result.totalDocs);
+    return(result.result)
   }
 
   useEffect(()=>{ //I want this to execute on the first render
     search();
+    setPosts(resp.docs); //this will update the state of the posts objet
+    console.log("post search: ", resp.docs);
   }, []) //the empty array says that this will only execute on first render
 
   return (
