@@ -3,6 +3,7 @@ import "@/app/globals.scss";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import createPost from "../../_components/createPost";
+import { revalidatePath } from "next/cache";
 
 export default function CreatePage(){
     const [errorMessage, setErrorMessage] = useState(""); //This useState sees if there was an error on the sign in proccess and storage the message in case it happens
@@ -17,6 +18,7 @@ export default function CreatePage(){
         console.log("respuesta: ",response)
 
         if(!response.error){ //If there was no error, then, redirect to home page
+            revalidatePath("/")
             router.push("/")
         } else { //If there was an error, then, set the error message
             if(errorMessage === response.errorMessage){ //if the error message keeps happening, the font size will increase
