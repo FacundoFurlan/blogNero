@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   
-  const search = async () => {
+  async function search () {
     const resp = await searchPosts() //this will search for the latest 3 posts
     setPosts(resp.docs); //this will update the state of the posts objet
     console.log("post search: ", resp.docs);
