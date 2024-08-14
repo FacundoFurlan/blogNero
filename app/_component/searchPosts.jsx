@@ -9,6 +9,7 @@ export default async function searchPosts() {
     headers: {
         "Content-Type": "application/json"
     },
+    next: {revalidate: 10}
   });
   
   const result = await res.json();
