@@ -1,6 +1,7 @@
 import { connectDB } from "@/utils/mongo";
 import postModel from "@/models/post";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 
 
@@ -17,7 +18,7 @@ export async function GET(request){
     try {
         const threeNewestPosts = await postModel.paginate({}, options);
         console.log("postModel: ",threeNewestPosts.totalDocs);
-
+        revalidatePath("/")
         return NextResponse.json({result: threeNewestPosts})
     } catch (error) {
         console.log(error.message);
