@@ -2,13 +2,12 @@
 import "@/app/globals.scss";
 import PostCard from "./_component/post";
 import { useEffect, useState } from "react";
-import searchPosts from "./_component/searchPosts";
 import Link from "next/link";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   
-  async function search () {
+  async function searchPosts () {
     const res = await fetch("https://blog-nero.vercel.app/api/", {
       method: "GET",
       headers: {
@@ -22,10 +21,14 @@ export default function Home() {
     return(result.result)
   }
 
-  useEffect(()=>{ //I want this to execute on the first render
-    search();
+  const search = async () => {
+    const resp = await searchPosts() //this will search for the latest 3 posts
     setPosts(resp.docs); //this will update the state of the posts objet
     console.log("post search: ", resp.docs);
+  }
+
+  useEffect(()=>{ //I want this to execute on the first render
+    search();
   }, []) //the empty array says that this will only execute on first render
 
   return (
