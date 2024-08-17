@@ -50,7 +50,7 @@ export default function Page({params}) {
         :
         <div>
             {
-                posts.docs.map((post) => <PostCard key={post._id} title={post.name} description={post.description} date={post.date} imgPath={post.image} id={post._id}></PostCard>)
+                posts.docs.map((post) => <PostCard key={post._id} title={post.name} description={post.description} date={post.date} imgPath={post.image} id={post._id} note={post.note}></PostCard>)
             }
             <Paginador posts= {posts}></Paginador>
         </div>

@@ -49,7 +49,7 @@ export default function Home() {
 
         </div> 
         :
-        posts.map((post) => <PostCard key={post._id} title={post.name} description={post.description} date={post.date} imgPath={post.image} id={post._id}></PostCard>)
+        posts.map((post) => <PostCard key={post._id} title={post.name} description={post.description} date={post.date} imgPath={post.image} id={post._id} note={post.note}></PostCard>)
       }
       <Link className="text-amber-400 mb-3 text-2xl" href={"/post/1"}>See more posts!</Link>
     </main>

@@ -1,7 +1,7 @@
 import "@/app/globals.scss";
 import Link from "next/link";
 
-export default function PostCard({title, description, date, imgPath, id}){
+export default function PostCard({title, description, date, imgPath, id, note}){
     return(
         <div className="m-8 mt-4 w-[80vw] lg:w-[50vw] flex flex-col justify-center items-center">
             <div className="max-w-sm w-full lg:max-w-full lg:flex card-bg">
@@ -13,12 +13,26 @@ export default function PostCard({title, description, date, imgPath, id}){
                 </div>
                 <p className="text-white text-base line-clamp-2">{description}</p>
                 </div>
-                <div className="flex items-center">
-                <div className="text-sm">
-                    <p className="text-white leading-none">Facundo Furlan</p>
-                    <p className="text-amber-400">{date}</p>
-                </div>
-                </div>
+                {
+                    note?
+                    <div className="flex justify-between">
+                        <div className="text-sm">
+                            <p className="text-amber-400">{note}</p>
+                        </div>
+                        <div className="text-sm">
+                            <p className="text-white leading-none">Facundo Furlan</p>
+                            <p className="text-amber-400">{date}</p>
+                        </div>
+                    </div>
+                    :
+                    <div className="flex">
+                        <div className="text-sm">
+                            <p className="text-white leading-none">Facundo Furlan</p>
+                            <p className="text-amber-400">{date}</p>
+                        </div>
+                    </div>
+                }
+
             </div>
             </div>
         </div>
