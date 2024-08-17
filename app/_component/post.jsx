@@ -17,11 +17,11 @@ export default function PostCard({title, description, date, imgPath, id, note}){
                     note?
                     <div className="flex justify-between">
                         <div className="text-sm">
-                            <p className="text-amber-400">{note}</p>
-                        </div>
-                        <div className="text-sm">
                             <p className="text-white leading-none">Facundo Furlan</p>
                             <p className="text-amber-400">{date}</p>
+                        </div>
+                        <div className="text-sm">
+                            <p className="text-amber-400">{note}</p>
                         </div>
                     </div>
                     :
