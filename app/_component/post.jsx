@@ -20,7 +20,7 @@ export default function PostCard({title, description, date, imgPath, id, note}){
                             <p className="text-white leading-none">Facundo Furlan</p>
                             <p className="text-amber-400">{date}</p>
                         </div>
-                        <div className="text-sm">
+                        <div className="text-sm items-center justify-center">
                             <p className="text-amber-400">Nota: {note}</p>
                         </div>
                     </div>
