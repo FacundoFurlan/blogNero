@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 const SECRET = process.env.SECRET_KEY;
 
 export default async function handleChangePass (formData){
-    const cookieFound = cookies().get("tokenConfirm") //Take the cookie with the token
+    const cookieFound = cookies().get("tokenForgot") //Take the cookie with the token
     let cookieDecoded = null;
     let dataCookie = null;
     if(cookieFound){ //if you found the cookie

@@ -20,7 +20,7 @@ export default function Page({params}) {
     const router = useRouter(); //This useRouter is used to redirect the user to the front page in case they change the password correctly
 
     const handleTokenConfirmation = async (params) => {
-        const result = await handleTokenConfirm(params); //---------------cambiar
+        const result = await handleTokenConfirm(params); 
         console.log("handle result: ", result);
         return(result)
     } 
