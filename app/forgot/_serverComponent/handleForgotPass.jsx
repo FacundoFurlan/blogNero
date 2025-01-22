@@ -8,18 +8,9 @@ const SECRET = process.env.SECRET_KEY;
 const MAIL = process.env.SECRET_MAIL;
 const PASSWORD = process.env.SECRET_APP_PASS;
 
-export default async function handleRegister (formData){
+export default async function handleForgotPass (formData){
     const data = Object.fromEntries(formData);
     console.log("datos: ", data)
-    console.log(typeof(data.name))
-
-    //name checks
-    if(data.name === ""){
-        return({error: true, errorMessage: "You need a name"});
-    }
-    if(data.name.length < 4 || data.name.length > 20){
-        return({error: true, errorMessage: "Name must have between 4 and 20 digits"});
-    }
 
     //email checks
     if(data.email === ""){
@@ -35,26 +26,12 @@ export default async function handleRegister (formData){
         return({error: true, errorMessage: "Email needs @"});
     }
 
-    //password checks
-    if(data.password === ""){
-        return({error: true, errorMessage: "You need a password"});
-    }
-    if(data.password.length < 4 || data.password.length > 20){
-        return({error: true, errorMessage: "Password must have between 4 and 20 digits"});
-    }
-    if( /\s/.test(data.password )){
-        return({error: true, errorMessage: "Password can't have spaces"});
-    }
-
-    
-
-
     try {
         // try to send the email
         const tokenConfirm = jwt.sign(data, SECRET, {expiresIn: "1h"}); // create the token with user data
         const  savedCookie = {tokenC: tokenConfirm}
         const savedCookieToken = jwt.sign(savedCookie, SECRET, {expiresIn: "1h"}) // creates the token thats going to the email
-        cookies().set("tokenConfirm", savedCookieToken, {httpOnly: true, maxAge: 3600}); // set it on navigator so we can check it later
+        cookies().set("tokenForgot", savedCookieToken, {httpOnly: true, maxAge: 3600}); // set it on navigator so we can check it later
     
         const transporter = nodemailer.createTransport({ // creates a trasporter for the email
             service: "Gmail",
@@ -73,14 +50,18 @@ export default async function handleRegister (formData){
             replyTo: MAIL,
             subject: `Confirm your mail!`,
             html: `
-            <button><a href="https://blog-nero.vercel.app/register/confirm/${tokenConfirm}">Confirm!</a></button>
+                <div>
+                    <h2>Confirm you want to change your password</h2>
+                    <button><a href="https://blog-nero.vercel.app/forgot/${tokenConfirm}">Change Password!</a></button>
+                    <p>If you dindt wanted to, just ignore this email</p>
+                </div>
             `,
         })
 
-        console.log("Confirm email sended:", mail);
+        console.log("Change password email sended:", mail);
         return({error: false})
     } catch (error) {
-        console.log("error sending mail:", error)
+        console.log("error sending the change password mail:", error)
         return({error: true, errorMessage: error.message})
     }
 }

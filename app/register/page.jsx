@@ -4,13 +4,13 @@ import handleRegister from "./_component/handleRegister";
 import { useState } from "react";
 
 export default function Page(){
-    const [errorMessage, setErrorMessage] = useState(""); //This useState sees if there was an error on the sign in proccess and storage the message in case it happens
+    const [errorMessage, setErrorMessage] = useState(""); //This useState sees if there was an error on the sign-in proccess and storages the message in case it happens
     const [errorCount, setErrorCount] = useState(0); 
     const [fontSize, setFontSize] = useState("");
     const [loading, setLoading] = useState(false);
     const [emailSended, setEmailSended] = useState(false);
 
-    async function formAction(formData){ //This function is used to manage the response of the server action
+    async function formAction(formData){ //This function is used to manage the server action
         const response = await handleRegister(formData); //call to the server action
         console.log("respuesta: ",response)
 

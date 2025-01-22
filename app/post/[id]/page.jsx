@@ -34,7 +34,7 @@ export default function Page({params}) {
 
   return (
     <main className="min-w-full min-h-screen flex flex-col items-center">
-      <h1 className="text-4xl text-amber-400 text-center mt-8 mb-4">Here are all de Posts!</h1>
+      <h1 className="text-4xl text-amber-400 text-center mt-8 mb-4">Here are all the Posts!</h1>
       {
         posts.docs.length < 1?
         <div className="my-16">

@@ -17,7 +17,7 @@ export default function Page({params}) {
   useEffect(()=>{ //I want this to execute on the first render
     search();
     howManyLikes();
-    getTheLike();
+    getTheLike(); //if this account liked the post or not
   }, []) //the empty array says that this will only execute on first render
 
   const search = async () => {
