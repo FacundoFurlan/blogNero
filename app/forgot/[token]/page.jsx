@@ -2,7 +2,7 @@
 import "@/app/globals.scss";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import registerConfirm from "./_component/registerConfirm";
+import handleTokenConfirm from "./_component/handleTokenConfirm";
 
 
 export default function Page({params}) {
@@ -18,8 +18,8 @@ export default function Page({params}) {
 
     const router = useRouter(); //This useRouter is used to redirect the user to the front page in case they change the password correctly
 
-    const handleTokenConfirm = async (params) => {
-        const result = await registerConfirm(params); //---------------cambiar
+    const handleTokenConfirmation = async (params) => {
+        const result = await handleTokenConfirm(params); //---------------cambiar
         console.log("handle result: ", result);
         return(result)
     } 
@@ -31,7 +31,7 @@ export default function Page({params}) {
 
         hasRun.current = true;
 
-        handleTokenConfirm(params).then(res => {  //Checks if the token is correct or not
+        handleTokenConfirmation(params).then(res => {  //Checks if the token is correct or not
             setInvalid(res.error);
             console.log("Invalid: " , invalid)
             if(res.error){
