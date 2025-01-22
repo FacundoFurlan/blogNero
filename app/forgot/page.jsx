@@ -46,7 +46,7 @@ export default function Page(){
 
 
     return(
-        <main>
+        <main className="flex flex-col items-center">
             <h2 className="text-2xl mb-6">Confirm your eMail</h2>
             <form action={formAction} onSubmit={()=>{setLoading(true)}} className="flex flex-col text-lg w-[80vw] md:w-[50vw] lg:w-[50vw] xl:w-[30vw] border card-bg px-8">
                 <p className={`${fontSize} mt-4 ease-in-out duration-300 text-center underline underline-offset-2 text-amber-400`}>{errorMessage}</p>
