@@ -3,6 +3,7 @@ import "@/app/globals.scss";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import handleTokenConfirm from "./_component/handleTokenConfirm";
+import handleChangePass from "./_component/handleChangePass";
 
 
 export default function Page({params}) {
