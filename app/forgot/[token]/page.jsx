@@ -48,7 +48,7 @@ export default function Page({params}) {
             router.push("/")
         } else { //If there was an error, then, set the error message
             setLoading(false)
-            if(errorMessage === response.message){ //if the error message keeps happening, the font size will increase
+            if(errorMessage === response.errorMessage){ //if the error message keeps happening, the font size will increase
                 setErrorCount(errorCount+1)
                 if(errorCount+1 == 1){
                     setFontSize(" text-2xl ");
@@ -69,7 +69,7 @@ export default function Page({params}) {
                 setErrorCount(0)
                 setFontSize("")
             }
-            setErrorMessage(response.message);
+            setErrorMessage(response.errorMessage);
         }
     }
 
