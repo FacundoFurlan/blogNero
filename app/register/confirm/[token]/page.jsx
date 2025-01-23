@@ -13,6 +13,7 @@ export default function Page({params}) {
 
     const handleRegister = async (params) => {
         const result = await registerConfirm(params);
+        setLoading(false);
         console.log("handle result: ", result);
         return(result)
     } 
