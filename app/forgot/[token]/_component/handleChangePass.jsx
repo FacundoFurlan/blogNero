@@ -34,7 +34,7 @@ export default async function handleChangePass (formData){
         return({error: true, errorMessage: "Password can't have spaces"});
     }
 
-    let dataRequest = {email: dataCookie.email, password: data.password}
+    let dataRequest = {email: dataCookie.email, password: data.password, action: 1}
 
 
     try {

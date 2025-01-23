@@ -26,6 +26,29 @@ export default async function handleForgotPass (formData){
         return({error: true, errorMessage: "Email needs @"});
     }
 
+    let dataRequest = {email: data.email, action: 2}
+    try {
+        const res = await fetch("https://blog-nero.vercel.app/forgot/api/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dataRequest)
+        });
+    
+        const result = await res.json();
+        console.log("Result was", result)
+        if(result.error){
+            console.error("Error Changing password", result.errorMessage);
+            return({error: true, errorMessage: result.errorMessage})
+        }
+    } catch (error) {
+        console.log("error Changing password:", error)
+        return({error: true, errorMessage: error.message})
+    }
+
+
+
     try {
         // try to send the email
         const tokenConfirm = jwt.sign(data, SECRET, {expiresIn: "1h"}); // create the token with user data

@@ -13,6 +13,7 @@ export default function Page(){
     const router = useRouter(); //This useRouter is used to redirect the user to the front page in case they log in correctly
 
     async function formAction(formData){ //This function is used to manage the response of the server action
+
         const response = await handleForgotPass(formData); //call to the server action
 
         if(!response.error){ //If there was no error, then, redirect to home page
