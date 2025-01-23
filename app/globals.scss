@@ -58,3 +58,14 @@ a {
 .preWrap{
   white-space: pre-wrap;
 }
+
+input:-webkit-autofill {
+  background-color: transparent !important; /* Ajusta el fondo */
+  -webkit-box-shadow: 0 0 0px 1000px $color_2 inset !important; /* Cambia el color del fondo */
+  -webkit-text-fill-color: #ffffff !important; /* Cambia el color del texto */
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px $color_2 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
