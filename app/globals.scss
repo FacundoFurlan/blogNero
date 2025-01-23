@@ -27,12 +27,6 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 .logo{
   // filter: invert(17%) sepia(52%) saturate(4960%) hue-rotate(354deg) brightness(86%) contrast(107%);
   filter: invert(69%) sepia(75%) saturate(492%) hue-rotate(353deg) brightness(102%) contrast(97%);
