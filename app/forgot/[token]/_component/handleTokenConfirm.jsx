@@ -17,7 +17,7 @@ export default async function handleTokenConfirm(params) {
             }
           }
         }
-        return({error: true}) //if something failed, there was an error
+        return({error: true, errorMessage: "Invalid ID"}) //if something failed, there was an error
     } catch (error) {
         console.log("error handling tokenForgot confirm:", error)
         return({error: true, errorMessage: error.message})
